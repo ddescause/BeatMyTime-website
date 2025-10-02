@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatMyTime - Real-time Cycling Performance Tracking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #000;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://img1.wsimg.com/isteam/getty/1466705887/:/rs=w:100%25');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: rgb(150, 150, 150);
+            font-weight: 300;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.5rem;
+            color: rgb(150, 150, 150);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: rgb(150, 150, 150);
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgb(150, 150, 150);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .signup-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input[type="email"]:focus {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            color: rgb(150, 150, 150);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BeatMyTime</div>
+            <div class="tagline">Real-time Performance Tracking</div>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <h1>Beat Every Personal Record</h1>
+                <div class="subtitle">with AI-Powered Real-time Coaching</div>
+                <p>Connect your Strava, choose your favorite segments, and get live performance tracking with intelligent coaching to help you smash your PRs in cycling, running, and more sports to come.</p>
+            </section>
+
+            <section class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🏃‍♂️</div>
+                    <h3>Strava Integration</h3>
+                    <p>Seamlessly sync with your Strava account and access all your favorite segments for real-time tracking during your cycling and running sessions.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Live Performance Data</h3>
+                    <p>Get real-time comparisons against your PR, 2nd/3rd best times, and KOM records with distance, time, and speed differentials.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Coach</h3>
+                    <p>Our intelligent coaching system provides live audio guidance and strategic advice to help you beat your personal records in any sport.</p>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h2>Performance Tracking Like Never Before</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-number">-3.2s</span>
+                        <div class="stat-label">Seconds ahead of PR</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">+2.4 km/h</span>
+                        <div class="stat-label">Speed advantage</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15m</span>
+                        <div class="stat-label">Distance to KOM</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">🎯</span>
+                        <div class="stat-label">Beat your PR</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Ready to Dominate Your Segments?</h2>
+                <p>Join the beta and be among the first athletes to experience AI-powered performance tracking that actually helps you go faster and stronger.</p>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="/beta-signup.html" class="btn" style="text-decoration: none; display: inline-block;">Join Beta Program</a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px; color: rgb(150, 150, 150);">
+                    🏃‍♂️ Free beta access • 📱 iOS & Android app • 🔒 Your Strava data stays secure
+                </p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 BeatMyTime • Empowering athletes to reach their potential</p>
+        </footer>
+    </div>
+
+    <script>
+        // Enhanced form interaction
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('.btn');
+            
+            if (email) {
+                button.textContent = 'Joining Beta...';
+                button.style.background = 'linear-gradient(135deg, #27ae60, #2ecc71)';
+                
+                // Reset after delay (in real implementation, handle success/error from Formspree)
+                setTimeout(() => {
+                    button.textContent = 'Get Beta Access';
+                    button.style.background = 'linear-gradient(135deg, #ff6b6b, #ee5a24)';
+                }, 2000);
+            }
+        });
+
+        // Smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

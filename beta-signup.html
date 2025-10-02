@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatMyTime Beta Tester Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #000;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://img1.wsimg.com/isteam/getty/1466705887/:/rs=w:100%25');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: transparent;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: rgb(150, 150, 150);
+            opacity: 0.9;
+        }
+
+        .form-content {
+            padding: 40px 30px;
+        }
+
+        .intro {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .intro h2 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .intro p {
+            color: rgb(150, 150, 150);
+        }
+
+        .form-section {
+            margin-bottom: 35px;
+        }
+
+        .form-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: rgb(150, 150, 150);
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        select {
+            color: #fff;
+        }
+
+        select option {
+            background: #333;
+            color: #fff;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: linear-gradient(to right, #667eea 0%, #667eea 50%, #e9ecef 50%, #e9ecef 100%);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .checkbox-item label {
+            color: #fff;
+        }
+
+        .checkbox-item input {
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: rgb(150, 150, 150);
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+        }
+
+        .privacy-note {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgb(150, 150, 150);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃‍♂️ BeatMyTime Beta Program</h1>
+            <p>Help us build the future of athletic performance tracking</p>
+        </div>
+
+        <div class="form-content">
+            <div class="intro">
+                <h2>Join Our Beta Testing Community</h2>
+                <p>We're developing AI-powered performance tracking that gives you real-time comparisons against your PRs and KOM records. Your feedback will help us create the ultimate training companion for cyclists and runners.</p>
+            </div>
+
+            <form action="https://formspree.io/f/manpjjpb" method="POST">
+                <!-- Basic Information -->
+                <div class="form-section">
+                    <h3>📝 Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location (City, State/Country)</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., San Francisco, CA">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age Range</label>
+                        <select id="age" name="age">
+                            <option value="">Select age range</option>
+                            <option value="18-25">18-25</option>
+                            <option value="26-35">26-35</option>
+                            <option value="36-45">36-45</option>
+                            <option value="46-55">46-55</option>
+                            <option value="56-65">56-65</option>
+                            <option value="66+">66+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Athletic Profile -->
+                <div class="form-section">
+                    <h3>🏃‍♂️ Athletic Profile</h3>
+                    
+                    <div class="form-group">
+                        <label>Primary Sports (check all that apply) <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cycling" name="primary_sports" value="cycling" required>
+                                <label for="cycling">Cycling</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="running" name="primary_sports" value="running">
+                                <label for="running">Running</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="triathlon" name="primary_sports" value="triathlon">
+                                <label for="triathlon">Triathlon</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other_sport" name="primary_sports" value="other">
+                                <label for="other_sport">Other</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience_level">Athletic Experience Level</label>
+                        <select id="experience_level" name="experience_level">
+                            <option value="">Select level</option>
+                            <option value="beginner">Beginner (less than 1 year)</option>
+                            <option value="recreational">Recreational (1-3 years)</option>
+                            <option value="enthusiast">Enthusiast (3-5 years)</option>
+                            <option value="competitive">Competitive (5+ years)</option>
+                            <option value="elite">Elite/Professional</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="training_frequency">Training Frequency</label>
+                        <select id="training_frequency" name="training_frequency">
+                            <option value="">Select frequency</option>
+                            <option value="1-2_per_week">1-2 times per week</option>
+                            <option value="3-4_per_week">3-4 times per week</option>
+                            <option value="5-6_per_week">5-6 times per week</option>
+                            <option value="daily">Daily</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="strava_usage">Do you use Strava? <span class="required">*</span></label>
+                        <select id="strava_usage" name="strava_usage" required>
+                            <option value="">Select usage</option>
+                            <option value="active">Yes, actively use it</option>
+                            <option value="occasional">Yes, but rarely</option>
+                            <option value="have_account">Have account but don't use</option>
+                            <option value="no_account">No, but interested</option>
+                            <option value="not_interested">No, not interested</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="segment_focus">How important are Strava segments to your training?</label>
+                        <input type="range" id="segment_focus" name="segment_focus" min="1" max="10" value="5">
+                        <div class="scale-labels">
+                            <span>Not Important</span>
+                            <span>Neutral</span>
+                            <span>Very Important</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Goals -->
+                <div class="form-section">
+                    <h3>🎯 Performance Goals</h3>
+                    
+                    <div class="form-group">
+                        <label>What motivates you most in training? (check all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="beat_pr" name="motivation" value="beat_personal_records">
+                                <label for="beat_pr">Beating personal records</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="compete_others" name="motivation" value="compete_with_others">
+                                <label for="compete_others">Competing with others</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fitness" name="motivation" value="general_fitness">
+                                <label for="fitness">General fitness</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="events" name="motivation" value="event_preparation">
+                                <label for="events">Event preparation</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frustrations">What frustrates you most about current performance tracking?</label>
+                        <textarea id="frustrations" name="frustrations" placeholder="e.g., can't see real-time progress, no audio coaching, delayed feedback..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Technology Profile -->
+                <div class="form-section">
+                    <h3>📱 Technology Profile</h3>
+                    
+                    <div class="form-group">
+                        <label for="device_type">Primary smartphone</label>
+                        <select id="device_type" name="device_type">
+                            <option value="">Select device</option>
+                            <option value="iphone">iPhone</option>
+                            <option value="android">Android</option>
+                            <option value="both">Both iPhone and Android</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tech_comfort">How comfortable are you with technology?</label>
+                        <input type="range" id="tech_comfort" name="tech_comfort" min="1" max="10" value="5">
+                        <div class="scale-labels">
+                            <span>Not comfortable</span>
+                            <span>Somewhat</span>
+                            <span>Very comfortable</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="testing_availability">How much time could you dedicate to testing per week?</label>
+                        <select id="testing_availability" name="testing_availability">
+                            <option value="">Select timeframe</option>
+                            <option value="1-2_hours">1-2 hours</option>
+                            <option value="3-5_hours">3-5 hours</option>
+                            <option value="5-10_hours">5-10 hours</option>
+                            <option value="10+_hours">More than 10 hours</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Motivation -->
+                <div class="form-section">
+                    <h3>💭 Your Motivation</h3>
+                    
+                    <div class="form-group">
+                        <label for="why_interested">Why are you interested in beta testing BeatMyTime?</label>
+                        <textarea id="why_interested" name="why_interested" placeholder="Share what excites you about real-time performance tracking and AI coaching..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="success_definition">What would make BeatMyTime a game-changer for your training?</label>
+                        <textarea id="success_definition" name="success_definition" placeholder="Describe your ideal scenario - what features would make you use this every training session?"></textarea>
+                    </div>
+                </div>
+
+                <!-- Hidden fields for tracking -->
+                <input type="hidden" name="_subject" value="New BeatMyTime Beta Tester Registration">
+                <input type="hidden" name="_next" value="https://beatmytime.ai/beta-thank-you.html">
+                <input type="hidden" name="_language" value="en">
+                
+                <!-- Honeypot for spam protection -->
+                <input type="text" name="_gotcha" style="display: none;">
+
+                <button type="submit" class="submit-btn">Join Beta Program</button>
+            </form>
+
+            <div class="privacy-note">
+                <strong>Privacy Promise:</strong> Your information will only be used for the beta testing program. We'll never share your data with third parties, and you can withdraw from the program at any time. By submitting this form, you agree to participate in our beta testing program and receive communications about the project.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateSlider(slider) {
+            const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+            slider.style.background = `linear-gradient(to right, #667eea 0%, #667eea ${value}%, #e9ecef ${value}%, #e9ecef 100%)`;
+        }
+
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            updateSlider(slider);
+            slider.addEventListener('input', function() {
+                updateSlider(this);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - BeatMyTime Beta Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #000;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://img1.wsimg.com/isteam/getty/1466705887/:/rs=w:100%25');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header {
+            background: transparent;
+            color: white;
+            padding: 40px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: rgb(150, 150, 150);
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .message h2 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .message p {
+            color: rgb(150, 150, 150);
+        }
+
+        .next-steps {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .next-steps ul {
+            padding-left: 20px;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+            color: rgb(150, 150, 150);
+        }
+
+        .next-steps h3 {
+            color: #fff;
+        }
+
+        .timeline {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .timeline h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            color: rgb(150, 150, 150);
+        }
+
+        .timeline-icon {
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px 10px 0;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgb(150, 150, 150);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="success-icon">🚀</div>
+            <h1>Welcome to the Beta Program!</h1>
+            <p>Thank you for joining our mission to revolutionize athletic performance tracking</p>
+        </div>
+
+        <div class="content">
+            <div class="message">
+                <h2>Your Application Has Been Received</h2>
+                <p>We're excited to have you as part of our beta testing community. Your real-world feedback will directly shape how BeatMyTime helps athletes achieve their personal bests.</p>
+            </div>
+
+            <div class="next-steps">
+                <h3>What Happens Next:</h3>
+                <ul>
+                    <li><strong>Review:</strong> We'll review your application within 2-3 business days</li>
+                    <li><strong>Selection:</strong> We'll email you if you're selected for the current beta round</li>
+                    <li><strong>Onboarding:</strong> Selected testers receive the app and detailed setup instructions</li>
+                    <li><strong>Testing:</strong> Start using BeatMyTime during your training sessions and provide feedback</li>
+                </ul>
+            </div>
+
+            <div class="timeline">
+                <h3>Expected Timeline:</h3>
+                <div class="timeline-item">
+                    <div class="timeline-icon">1</div>
+                    <span><strong>This Week:</strong> Application review and selection</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">2</div>
+                    <span><strong>Next 1-2 Weeks:</strong> Beta app distribution begins</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">3</div>
+                    <span><strong>Ongoing:</strong> Regular testing cycles and feature updates</span>
+                </div>
+            </div>
+
+            <p><strong>Check your email</strong> for a confirmation message with more details about the beta program.</p>
+
+            <div class="cta-buttons">
+                <a href="/" class="btn btn-primary">Back to BeatMyTime</a>
+                <a href="https://www.strava.com" class="btn btn-secondary" target="_blank">Check Your Strava</a>
+            </div>
+
+            <div class="contact-info">
+                <strong>Questions?</strong> Email us at beta@beatmytime.ai or reply to your confirmation email. We read every message and will get back to you within 24 hours.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
